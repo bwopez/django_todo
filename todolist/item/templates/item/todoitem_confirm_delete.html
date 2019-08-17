@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <h1>Delete "{{ object.title }}"</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{ object.title }}" ?</p>
+                <input type="submit" value="Confirm" />
+            </form>
+        </div>
+
+        <div class="col-md-4 text-left">
+            <a href="{% url 'todolist:todo_detail' object.id %}">View Task Details</a>
+            <br />
+            <a href="{% url 'todolist:todo_all' %}">All Tasks</a>
+        </div>
+    </div>
+{% endblock %}

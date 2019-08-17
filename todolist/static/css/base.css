@@ -1,0 +1,36 @@
+body {
+    background-color: wheat;
+}
+
+#spacing {
+    padding: 25px;
+}
+
+a {
+    color: #6e7e85;
+}
+
+a:hover {
+    color: #80856f;
+    text-decoration: none;
+}
+
+.todolist_table {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 15px 50px;
+}
+
+.padding_right {
+    padding-right: 100px;
+}
+
+.padding_icon {
+    padding-right: 10px;
+}
+
+.finished_item {
+    text-decoration: line-through;
+    color: #6e7e85;
+}

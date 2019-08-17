@@ -1,0 +1,32 @@
+<h1>
+    // TODOs
+    <a href="{% url 'todolist:todo_new' %}"><i class="fas fa-plus"></i></a>
+</h1>
+<p>
+    <a href="{% url 'todolist:todo_completed' %}">Complete</a>
+    <a href="{% url 'todolist:todo_incompleted' %}">Incomplete</a>
+    <a href="{% url 'todolist:todo_all' %}">All</a>
+</p>
+
+<table class="todolist_table">
+    {% for todo in object_list %}
+        <tr>
+            <td class="padding_right">
+                <h5>
+                    <span
+                        {% if todo.finished %}
+                            class="finished_item"
+                        {% endif %}
+                    >
+                        {{ todo.title }}
+                    </span>
+                </h5>
+            </td>
+
+            <td class="padding_icon"><a href="{% url 'todolist:todo_detail' todo.id %}"><i class='fas fa-bars'></i></a></td>
+            <td class="padding_icon"><a href="{% url 'todolist:todo_delete' todo.id %}"><i class='fas fa-times'></i></a</td>
+        </tr>
+    {% empty %}
+        <tr><td class="padding_right"><h5>Click the + to get started.</h5></td></tr>
+    {% endfor %}
+</table>

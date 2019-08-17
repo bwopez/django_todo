@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <h1>{{ object.title }}</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p>{{ object.description }}</p>
+            <p>
+                {% if object.finished %}
+                    Currently completed
+                {% else %}
+                    Currently not completed
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="col-md-4 text-left">
+            <a href="{% url 'todolist:todo_update' object.id %}">Change Completion Status</a>
+            <br />
+            <a href="{% url 'todolist:todo_delete' object.id %}">Delete</a>
+            <br />
+            <a href="{% url 'todolist:todo_all' %}">All tasks</a>
+        </div>
+    </div>
+{% endblock %}
